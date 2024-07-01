@@ -1,34 +1,36 @@
-
-for number in range(1,300):
-    my_print = ""
-
-    if number % 11 == 0:
-        my_print = "Bong"
-    elif number % 3 == 0 and number % 5 == 0:
-        my_print = "FizzBuzz"
-    elif number % 3 == 0:
-        my_print = "Fizz"
-    elif number % 5 == 0:
-        my_print = "Buzz"
-
-    if number % 7 == 0:
-        my_print = my_print + "Bang"
-
-    if number % 13 == 0:
-        where_is_B = my_print.find("B")
-        if where_is_B == -1:
-            my_print = my_print + "Fezz"
+def FizzBuzz(my_range):
+    for number in range(1,my_range):
+        string = ""
+    
+        if number % 11 == 0:
+            string = "Bong"
+        elif number % 15 == 0:
+            string = "FizzBuzz"
+        elif number % 3 == 0:
+            string = "Fizz"
+        elif number % 5 == 0:
+            string = "Buzz"
+    
+        if number % 7 == 0:
+            string = string + "Bang"
+    
+        if number % 13 == 0:
+            where_is_B = string.find("B")
+            if where_is_B == -1:
+                string = string + "Fezz"
+            else:
+                string = string[:where_is_B] + "Fezz" + string[where_is_B:]
+    
+        if number % 17 == 0:
+            index = 0
+            while index <= len(string):
+                substring = string[0:4]
+                string = string[4:] + substring
+                index += 4
+    
+        if string == "":
+            print(number)
         else:
-            my_print = my_print[:where_is_B] + "Fezz" + my_print[where_is_B:]
+            print(string)
 
-    if number % 17 == 0:
-        index = 0
-        while index <= len(my_print):
-            substring = my_print[0:4]
-            my_print = my_print[4:] + substring
-            index += 4
-
-    if my_print == "":
-        print(number)
-    else:
-        print(my_print)
+FizzBuzz(300)
